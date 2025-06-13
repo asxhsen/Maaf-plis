@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maaf Karega?</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #ffe6ea;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      color: #a00028;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #dc3545;
+      color: white;
+      position: absolute;
+    }
+
+    .gif {
+      margin-top: 20px;
+      width: 150px;
+      height: 150px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Maaf karega aap mereko?</h1>
+  <div class="buttons">
+    <button id="yesBtn">Haan</button>
+    <button id="noBtn">Nahi</button>
+  </div>
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGpjN2hndWx6ZDJwMnQ4ejEyY2gwbDVxZ2p4NWJ4a3ZicnF5NzN0ZyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/cXblnKXr2BQOaYnTni/giphy.gif" alt="cute gif" class="gif" />
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+
+    noBtn.addEventListener('mouseover', () => {
+      const randomX = Math.floor(Math.random() * (window.innerWidth - 100));
+      const randomY = Math.floor(Math.random() * (window.innerHeight - 100));
+      noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+    });
+
+    document.getElementById('yesBtn').addEventListener('click', () => {
+      alert("Sach mein?! Thank you 😭❤️");
+    });
+  </script>
+
+</body>
+</html>
