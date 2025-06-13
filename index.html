@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maaf Kardio Plis?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffe6e6; /* Light pink background */
+            font-family: Arial, sans-serif;
+            position: relative; /* For z-index layering */
+        }
+        h1 {
+            color: #ff4d4d; /* Reddish text for the question */
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 30px;
+            z-index: 1; /* Ensure buttons are above the response */
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            transition: transform 0.3s ease; /* Smooth scaling effect */
+        }
+        #haanButton {
+            background-color: #4CAF50; /* Green for Haan */
+        }
+        #nahhButton {
+            background-color: #ff4d4d; /* Red for Nahh */
+        }
+        #response {
+            margin-top: 30px;
+            font-size: 1.5em;
+            color: #333;
+            z-index: 0; /* Ensure response is below the buttons */
+        }
+    </style>
+</head>
+<body>
+    <h1>Maaf Kardio Plis?</h1>
+    <div class="buttons">
+        <button id="haanButton" onclick="respond('Haan')">Haan</button>
+        <button id="nahhButton" onclick="makeHaanLarger()">Nahh</button>
+    </div>
+    <div id="response"></div>
+
+    <script>
+        let haanScale = 1; // Initial scale of Haan button
+        let clickCount = 0; // Track the number of clicks on Nahh
+
+        function makeHaanLarger() {
+            const haanButton = document.getElementById('haanButton');
+            clickCount++; // Increment click counter
+            haanScale += 0.7; // Scale increment set to 0.7, reaching 4.5x after 5 clicks
+            haanButton.style.transform = `scale(${haanScale})`; // Apply scaling
+            const responseDiv = document.getElementById('response');
+            responseDiv.innerText = "Shayad se wrong option pe click hogaya 😇";
+        }
+
+        function respond(choice) {
+            const responseDiv = document.getElementById('response');
+            if (choice === 'Haan') {
+                responseDiv.innerText = "Aapka Bhot Bhot Sukriya 💖";
+                document.getElementById('nahhButton').style.display = 'none'; // Hide Nahh button after Haan is clicked
+                document.getElementById('haanButton').style.transform = 'scale(1)'; // Reset Haan button size
+            }
+        }
+    </script>
+</body>
+</html>
